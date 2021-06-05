@@ -1,5 +1,6 @@
 # Get a copy of Docker running
 sudo: required
+language: node_js
 
 services:
   - docker
