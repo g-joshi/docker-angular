@@ -1,0 +1,9 @@
+FROM node:alpine
+
+WORKDIR '/usr/ng-frontend'
+
+COPY ./package.json ./
+RUN npm install
+#COPY ./ ./
+
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--", "--disable-host-check"]

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "9999:4200"
+    volumes:
+      - /usr/ng-frontend/node_modules
+      - .:/usr/ng-frontend
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/ng-frontend/node_modules
+      - .:/usr/ng-frontend
+    command: ["npm", "run", "test"]
