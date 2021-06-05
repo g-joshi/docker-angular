@@ -1,0 +1,15 @@
+# Get a copy of Docker running
+sudo: required
+
+services:
+  - docker
+
+# Build Dockerfile.dev
+before_install:
+  - docker build -t joshigaurav/docker-angular -f Dockerfile.dev .
+
+# Tell travis how to run the test suite
+script:
+  - docker run joshigaurav/docker-angular npm run test
+
+# Tell travis how to deploy our code
